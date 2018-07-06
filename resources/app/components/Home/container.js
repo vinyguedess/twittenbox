@@ -1,5 +1,24 @@
 import { connect } from "react-redux";
 import Home from "./components/Home";
+import { fetchTweets } from "./actions";
 
 
-export default connect(null, null)(Home);
+const mapDispatchToProps = ({ home }) => ({
+    tweets: home.tweets,
+    isFetching: home.isFetching
+});
+
+
+const mapDispatchToProps = dispatch => 
+{
+    dispatch(fetchTweets());
+    return {
+        refreshTweets()
+        {
+            dispatch(fetchTweets());
+        }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -13,6 +13,12 @@ export default bootstrap =>
 
     bootstrap.route({
         method: "GET",
+        path: "/",
+        handler: (request, reply) => reply.view("home")
+    });
+
+    bootstrap.route({
+        method: "GET",
         path: "/app",
 
         handler: (request, reply) => 

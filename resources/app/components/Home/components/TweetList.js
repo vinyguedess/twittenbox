@@ -10,13 +10,13 @@ const TweetList = ({ tweets, isFetching }) => (
                 <div className="text-center">
                     Carregando tweets
                 </div>
-            :
+                :
                 !tweets.length ?
                     <div className="text-center">
                         Nenhum tweet encontrado
                     </div>
-                :
-                    tweets.map(tweet => <Tweet tweet={tweet} />)
+                    :
+                    tweets.map((tweet, key) => <Tweet key={`nav-tweets-${key}`} tweet={tweet} />)
         }
     </div>
 );
@@ -31,7 +31,7 @@ TweetList.propTypes = {
             profile_image_url_https: PropTypes.string.isRequired
         }).isRequired
     })).isRequired
-}
+};
 
 
 export default TweetList;

@@ -1,4 +1,5 @@
-export default bootstrap => {
+export default bootstrap => 
+{
 
     bootstrap.route({
         method: "GET",
@@ -14,7 +15,8 @@ export default bootstrap => {
         method: "GET",
         path: "/app",
 
-        handler: (request, reply) => {
+        handler: (request, reply) => 
+        {
             if (!request.state["twitter.auth"])
                 return reply.redirect().location("/auth/login");
 
@@ -22,4 +24,4 @@ export default bootstrap => {
         }
     });
 
-}
+};

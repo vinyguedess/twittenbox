@@ -14,7 +14,8 @@ describe("Test/Unit/App/Home/ActionsTest", () =>
         middlewares = [thunkMiddleware],
         mockStore = createStore(middlewares);
 
-    it("Should request for tweets list", done => {
+    it("Should request for tweets list", done => 
+    {
         sinon.stub(Axios, "get")
             .onCall(0).returns(Promise.resolve({
                 status: 200,

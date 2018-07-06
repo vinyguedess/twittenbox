@@ -1743,4 +1743,4 @@ export default [
         "possibly_sensitive_appealable": false,
         "lang": "pt"
     }
-]
+];

@@ -6,13 +6,16 @@ import tweets from "./../../../../Fixtures/tweets";
 import Home from "../../../../../resources/app/components/Home/components/Home";
 
 
-describe("Test/Unit/App/Home/Components/HomeTest", () => {
+describe("Test/Unit/App/Home/Components/HomeTest", () => 
+{
 
-    before(() => {
+    before(() => 
+    {
         Enzyme.configure({ adapter: new Adapter() });
     });
 
-    it("Should render single tweet without trouble", () => {
+    it("Should render home", () => 
+    {
         const wrapper = Enzyme.shallow(<Home tweets={tweets} isFetching={false} />);
 
         expect(wrapper).to.be.lengthOf(1);

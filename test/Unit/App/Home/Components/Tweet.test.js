@@ -6,13 +6,16 @@ import tweets from "./../../../../Fixtures/tweets";
 import Tweet from "../../../../../resources/app/components/Home/components/Tweet";
 
 
-describe("Test/Unit/App/Home/Components/TweetTest", () => {
+describe("Test/Unit/App/Home/Components/TweetTest", () => 
+{
 
-    before(() => {
+    before(() => 
+    {
         Enzyme.configure({ adapter: new Adapter() });
     });
 
-    it("Should render single tweet without trouble", () => {
+    it("Should render single tweet", () => 
+    {
         const wrapper = Enzyme.shallow(<Tweet tweet={tweets[0]} />);
 
         expect(wrapper).to.be.lengthOf(1);

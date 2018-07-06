@@ -6,17 +6,18 @@ import tweets from "./../../../../Fixtures/tweets";
 import TweetList from "../../../../../resources/app/components/Home/components/TweetList";
 
 
-describe("Test/Unit/App/Home/Components/TweetListTest", () => {
+describe("Test/Unit/App/Home/Components/TweetListTest", () => 
+{
 
-    before(() => {
+    before(() => 
+    {
         Enzyme.configure({ adapter: new Adapter() });
     });
 
-    it("Should render single tweet without trouble", () => {
+    it("Should render tweets' list", () => 
+    {
         const wrapper = Enzyme.shallow(<TweetList tweets={tweets} isFetching={false} />);
-
         expect(wrapper).to.be.lengthOf(1);
-        expect(wrapper.find(".tweets-nav")).to.be.lengthOf(1);
     });
 
 });

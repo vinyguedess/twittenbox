@@ -2,9 +2,11 @@ import { OAuth } from "oauth";
 import Axios from "axios";
 
 
-export default class TwitterService {
+export default class TwitterService 
+{
 
-    constructor(oauthToken = null, oauthTokenSecret = null) {
+    constructor(oauthToken = null, oauthTokenSecret = null) 
+    {
         this.oauth = new OAuth(
             "https://api.twitter.com/oauth/request_token",
             "https://api.twitter.com/oauth/access_token",
@@ -15,15 +17,18 @@ export default class TwitterService {
             "HMAC-SHA1"
         );
 
-        this.api = "https://api.twitter.com"
+        this.api = "https://api.twitter.com";
 
         this.oauthToken = oauthToken;
         this.oauthTokenSecret = oauthTokenSecret;
     }
 
-    fetchTweets() {
-        return new Promise((resolve, reject) => {
-            this.oauth.get(`${this.api}/1.1/statuses/home_timeline.json`, this.oauthToken, this.oauthTokenSecret, (err, results) => {
+    fetchTweets() 
+    {
+        return new Promise((resolve, reject) => 
+        {
+            this.oauth.get(`${this.api}/1.1/statuses/home_timeline.json`, this.oauthToken, this.oauthTokenSecret, (err, results) => 
+            {
                 if (err) return reject(err);
 
                 resolve(JSON.parse(results));
@@ -31,22 +36,26 @@ export default class TwitterService {
         });
     }
 
-    getAccessToken(oauthToken, oauthVerifier) {
+    getAccessToken(oauthToken, oauthVerifier) 
+    {
         return Axios.post(`${this.api}/oauth/access_token?oauth_token=${oauthToken}&oauth_verifier=${oauthVerifier}`, {
             oauth_verifier: oauthVerifier
         })
             .then(({ data }) => this.parseAccessTokenBody(data));
     }
 
-    getOAuthRequestToken() {
+    getOAuthRequestToken() 
+    {
         return new Promise((resolve, reject) =>
             this.oauth.getOAuthRequestToken((err, oauthAccessToken) =>
                 err ? reject(err) : resolve(oauthAccessToken)));
     }
 
-    parseAccessTokenBody(data) {
+    parseAccessTokenBody(data) 
+    {
         let treatedData = data.split("&"), attributes = {};
-        treatedData.forEach(item => {
+        treatedData.forEach(item => 
+        {
             let [field, value] = item.split("=");
             attributes[field] = value;
         });

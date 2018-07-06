@@ -19,7 +19,7 @@ Home.propTypes = {
             profile_image_url_https: PropTypes.string.isRequired
         }).isRequired
     })).isRequired
-}
+};
 
 
 export default Home;

@@ -15,7 +15,8 @@ describe("Test/Unit/App/Home/ReducerTest", () =>
         });
     });
 
-    it(`Should return state for action ${HOME_REQUEST_TWEETS}`, () => {
+    it(`Should return state for action ${HOME_REQUEST_TWEETS}`, () => 
+    {
         expect(reducer({ tweets: [] }, { type: HOME_REQUEST_TWEETS })).to.be.deep.equal({
             isFetching: true,
             tweets: []

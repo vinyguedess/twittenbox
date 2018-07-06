@@ -6,7 +6,7 @@ export const fetchTweets = () => dispatch =>
     dispatch(requestTweets());
     return Axios.get("/api/tweets")
         .then(({ data }) => dispatch(receiveTweets(data)));
-}
+};
 
 
 export const HOME_REQUEST_TWEETS = "HOME:REQUEST_TWEETS";

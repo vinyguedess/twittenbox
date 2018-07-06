@@ -18,7 +18,8 @@ export const bootstrap = new Promise(resolve => resolve(new Hapi.Server({
             relativeTo: path.resolve("public")
         }
     }
-}))).then(async app => {
+}))).then(async app => 
+{
 
     await Registers(app);
 

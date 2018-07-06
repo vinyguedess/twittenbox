@@ -17,8 +17,8 @@ const mapDispatchToProps = dispatch =>
         {
             dispatch(fetchTweets());
         }
-    }
-}
+    };
+};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

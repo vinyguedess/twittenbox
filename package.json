@@ -73,6 +73,7 @@
         "lint:api": "./node_modules/.bin/eslint src/ --fix",
         "lint:client": "./node_modules/.bin/eslint resources/app/ --ext .js --ext .jsx --fix",
         "lint:test": "./node_modules/.bin/eslint test/ --fix",
+        "precommit": "./node_modules/.bin/lint-staged",
         "start": "node server.js",
         "test": "./node_modules/.bin/nyc ./node_modules/mocha/bin/_mocha"
     }

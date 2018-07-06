@@ -19,7 +19,6 @@ describe("Test/Unit/App/Home/Components/HomeTest", () =>
         const wrapper = Enzyme.shallow(<Home tweets={tweets} isFetching={false} />);
 
         expect(wrapper).to.be.lengthOf(1);
-        expect(wrapper.find(".tweets-nav")).to.be.lengthOf(1);
     });
 
 });

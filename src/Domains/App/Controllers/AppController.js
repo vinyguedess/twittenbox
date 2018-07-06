@@ -1,3 +1,5 @@
+import CookieService from "../../Api/Services/CookieService";
+
 export default bootstrap => 
 {
 
@@ -23,7 +25,7 @@ export default bootstrap =>
 
         handler: (request, reply) => 
         {
-            if (!request.state["twitter.auth"])
+            if (!CookieService.has("twitter.auth"))
                 return reply.redirect().location("/auth/login");
 
             return reply.view("app");

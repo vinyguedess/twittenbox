@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Header from "./Header";
 import TweetList from "./TweetList";
 
 
 const Home = ({ tweets, isFetching }) => (
     <div>
-        <TweetList tweets={tweets} isFetching={isFetching} className="tweets-nav" />
+        <Header />
+        <TweetList tweets={tweets} isFetching={isFetching} />
     </div>
 );
 

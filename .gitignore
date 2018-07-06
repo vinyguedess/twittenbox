@@ -4,6 +4,7 @@
 /coverage
 /node_modules
 /public
+/storage/**/*.cookie
 /yarn-error.log
 
 # OS and IDE files and folders

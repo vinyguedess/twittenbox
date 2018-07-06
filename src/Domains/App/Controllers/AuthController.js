@@ -1,4 +1,5 @@
 import TwitterService from "../../Api/Services/TwitterService";
+import CookieService from "../../Api/Services/CookieService";
 
 
 export default bootstrap => 
@@ -10,13 +11,23 @@ export default bootstrap =>
         handler: (request, reply) => 
         {
             let twitterService = new TwitterService();
-            return twitterService.getOAuthToken()
+            return twitterService.getOAuthRequestToken()
                 .then(token => reply
                     .redirect()
                     .location(`https://api.twitter.com/oauth/authorize?oauth_token=${token}`));
         }
     });
 
+    bootstrap.route({
+        method: "GET",
+        path: "/auth/logout",
+        handler: (request, reply) =>
+        {
+            CookieService.delete("twitter.auth");
+            return reply.redirect().location("/");
+        }
+    });
+ 
     bootstrap.route({
         method: "GET",
         path: "/auth/proccess",
@@ -27,7 +38,7 @@ export default bootstrap =>
                 .getAccessToken(request.query.oauth_token, request.query.oauth_verifier)
                 .then(response => 
                 {
-                    reply.state("twitter.auth", {
+                    CookieService.set("twitter.auth", {
                         oauth_token: response.oauth_token,
                         oauth_token_secret: response.oauth_token_secret
                     });

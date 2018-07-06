@@ -4,7 +4,7 @@ import Tweet from "./Tweet";
 
 
 const TweetList = ({ tweets, isFetching }) => (
-    <div>
+    <div className="tweets-nav">
         {
             !tweets.length && isFetching ?
                 <div className="text-center">

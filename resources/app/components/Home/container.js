@@ -3,7 +3,7 @@ import Home from "./components/Home";
 import { fetchTweets } from "./actions";
 
 
-const mapDispatchToProps = ({ home }) => ({
+const mapStateToProps = ({ home }) => ({
     tweets: home.tweets,
     isFetching: home.isFetching
 });

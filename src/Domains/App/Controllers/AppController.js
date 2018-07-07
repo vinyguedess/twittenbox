@@ -16,7 +16,13 @@ export default bootstrap =>
     bootstrap.route({
         method: "GET",
         path: "/",
-        handler: (request, reply) => reply.view("home")
+        handler: (request, reply) => 
+        {
+            if (CookieService.has("twitter.auth"))
+                return reply.redirect().location("/app");
+                
+            return reply.view("home");
+        }
     });
 
     bootstrap.route({

@@ -13,6 +13,12 @@ html, body, p, div, ul, li {
     color: #FFF;
 }
 
+.tweets-nav .tweets-nav-header, .tweets-nav .text-center {
+    text-align: center;
+    width: 70%;
+    margin: 5px auto;
+}
+
 .tweets-nav .tweet {
     background: #e7a61a;
 

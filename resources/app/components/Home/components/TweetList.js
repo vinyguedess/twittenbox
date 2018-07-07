@@ -3,17 +3,22 @@ import PropTypes from "prop-types";
 import Tweet from "./Tweet";
 
 
-const TweetList = ({ tweets, isFetching }) => (
+const TweetList = ({ tweets, isFetching, refreshTweets }) => (
     <div className="tweets-nav">
+        <div className="tweets-nav-header">
+            <button className="refresh-button" onClick={refreshTweets}>
+                Refresh
+            </button>
+        </div>
         {
             !tweets.length && isFetching ?
                 <div className="text-center">
-                    Carregando tweets
+                    Loading tweets
                 </div>
                 :
                 !tweets.length ?
                     <div className="text-center">
-                        Nenhum tweet encontrado
+                        No tweets found
                     </div>
                     :
                     tweets.map((tweet, key) => <Tweet key={`nav-tweets-${key}`} tweet={tweet} />)
@@ -23,6 +28,8 @@ const TweetList = ({ tweets, isFetching }) => (
 
 
 TweetList.propTypes = {
+    refreshTweets: PropTypes.func.isRequired,
+
     isFetching: PropTypes.bool.isRequired,
 
     tweets: PropTypes.arrayOf(PropTypes.shape({

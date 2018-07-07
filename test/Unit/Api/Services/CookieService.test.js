@@ -30,4 +30,10 @@ describe("Test/Unit/Api/Services/CookieServiceTest", () =>
         expect(CookieService.get("other.key")).to.be.null;
     });
 
+    after(() => 
+    {
+        CookieService.delete("any.key");
+        CookieService.delete("other.key");
+    });
+
 });

@@ -16,7 +16,7 @@ describe("Test/Integration/AuthTest", () =>
         Axios.get("http://127.0.0.1:3000/auth/login")
             .then(({ data, status }) => 
             {
-                expect(data).to.contain("Twitter / Autorizar um aplicativo");
+                expect(data).to.match(/Twitter\s\/\s(Authorize|Autorizar)/);
                 expect(status).to.be.equal(200);
             })
             .then(done);

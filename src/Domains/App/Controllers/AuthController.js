@@ -21,13 +21,13 @@ export default bootstrap =>
     bootstrap.route({
         method: "GET",
         path: "/auth/logout",
-        handler: (request, reply) =>
+        handler: (request, reply) => 
         {
             CookieService.delete("twitter.auth");
             return reply.redirect().location("/");
         }
     });
- 
+
     bootstrap.route({
         method: "GET",
         path: "/auth/proccess",

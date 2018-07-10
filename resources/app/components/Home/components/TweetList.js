@@ -7,7 +7,7 @@ const TweetList = ({ tweets, isFetching, refreshTweets }) => (
     <div className="tweets-nav">
         <div className="tweets-nav-header">
             <button className="refresh-button" onClick={refreshTweets}>
-                Refresh
+                <i className={"fa fa-spinner" + (isFetching ? " fa-spin" : "")}></i>
             </button>
         </div>
         {

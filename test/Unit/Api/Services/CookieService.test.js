@@ -33,7 +33,7 @@ describe("Test/Unit/Api/Services/CookieServiceTest", () =>
     after(() => 
     {
         CookieService.delete("any.key");
-        CookieService.delete("other.key");
+        CookieService.delete("any.object.key");
     });
 
 });

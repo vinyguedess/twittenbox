@@ -10,9 +10,9 @@ const shouldFetchTweets = ({ home }) =>
 };
 
 
-export const fetchTweets = () => (dispatch, getState) => 
+export const fetchTweets = (refresh = false) => (dispatch, getState) => 
 {
-    if (shouldFetchTweets(getState())) 
+    if (refresh || shouldFetchTweets(getState())) 
     {
         dispatch(requestTweets());
         return Axios.get("/api/tweets")

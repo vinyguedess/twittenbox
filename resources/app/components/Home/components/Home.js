@@ -4,9 +4,9 @@ import Header from "./Header";
 import TweetList from "./TweetList";
 
 
-const Home = ({ tweets, isFetching, refreshTweets }) => 
+const Home = ({ tweets, isFetching, loadTweets, refreshTweets }) => 
 {
-    refreshTweets();
+    loadTweets();
     return (
         <div>
             <Header />
@@ -18,6 +18,7 @@ const Home = ({ tweets, isFetching, refreshTweets }) =>
 
 Home.propTypes = {
     refreshTweets: PropTypes.func.isRequired,
+    loadTweets: PropTypes.func.isRequired,
 
     isFetching: PropTypes.bool.isRequired,
 

@@ -12,9 +12,13 @@ const mapStateToProps = ({ home }) => ({
 const mapDispatchToProps = dispatch => 
 {
     return {
-        refreshTweets() 
+        loadTweets() 
         {
             dispatch(fetchTweets());
+        },
+        refreshTweets() 
+        {
+            dispatch(fetchTweets(true));
         }
     };
 };

@@ -16,7 +16,7 @@ describe("Test/Unit/App/Home/Components/HomeTest", () =>
 
     it("Should render home", () => 
     {
-        const wrapper = Enzyme.shallow(<Home tweets={tweets} isFetching={false} refreshTweets={() => null} />);
+        const wrapper = Enzyme.shallow(<Home tweets={tweets} isFetching={false} loadTweets={() => null} refreshTweets={() => null} />);
 
         expect(wrapper).to.be.lengthOf(1);
     });

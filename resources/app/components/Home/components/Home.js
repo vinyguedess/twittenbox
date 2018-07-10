@@ -4,12 +4,16 @@ import Header from "./Header";
 import TweetList from "./TweetList";
 
 
-const Home = ({ tweets, isFetching, refreshTweets }) => (
-    <div>
-        <Header />
-        <TweetList tweets={tweets} isFetching={isFetching} refreshTweets={refreshTweets} />
-    </div>
-);
+const Home = ({ tweets, isFetching, refreshTweets }) => 
+{
+    refreshTweets();
+    return (
+        <div>
+            <Header />
+            <TweetList tweets={tweets} isFetching={isFetching} refreshTweets={refreshTweets} />
+        </div>
+    );
+};
 
 
 Home.propTypes = {

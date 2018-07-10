@@ -25,11 +25,11 @@ export default class TwitterService
 
     fetchTweets() 
     {
-        return new Promise((resolve, reject) => 
+        return new Promise(resolve => 
         {
             this.oauth.get(`${this.api}/1.1/statuses/home_timeline.json`, this.oauthToken, this.oauthTokenSecret, (err, results) => 
             {
-                if (err) return reject(err);
+                if (err) return resolve([]);
 
                 resolve(JSON.parse(results));
             });

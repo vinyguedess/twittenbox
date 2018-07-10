@@ -18,9 +18,12 @@ describe("Test/Unit/Api/Services/TwitterService", () =>
             .then(tweets => 
             {
                 expect(tweets).to.be.an("array");
-                expect(tweets[0]).to.have.property("created_at");
-                expect(tweets[0]).to.have.property("user");
-                expect(tweets[0]).to.have.property("text");
+                if (tweets.length) 
+                {
+                    expect(tweets[0]).to.have.property("created_at");
+                    expect(tweets[0]).to.have.property("user");
+                    expect(tweets[0]).to.have.property("text");
+                }
             })
             .then(done);
     });

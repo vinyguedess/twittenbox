@@ -11,7 +11,7 @@ describe("Test/Unit/App/Home/ReducerTest", () =>
     {
         expect(reducer(null, {})).to.be.deep.equal({
             isFetching: false,
-            tweets: []
+            tweets: null
         });
     });
 

@@ -4,16 +4,15 @@ import { fetchTweets } from "./actions";
 
 
 const mapStateToProps = ({ home }) => ({
-    tweets: home.tweets,
+    tweets: home.tweets || [],
     isFetching: home.isFetching
 });
 
 
 const mapDispatchToProps = dispatch => 
 {
-    dispatch(fetchTweets());
     return {
-        refreshTweets()
+        refreshTweets() 
         {
             dispatch(fetchTweets());
         }

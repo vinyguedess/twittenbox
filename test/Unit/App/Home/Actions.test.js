@@ -7,10 +7,15 @@ import tweets from "./../../../Fixtures/tweets";
 import { fetchTweets, HOME_REQUEST_TWEETS, HOME_RECEIVE_TWEETS } from "../../../../resources/app/components/Home/actions";
 
 
-describe("Test/Unit/App/Home/ActionsTest", () =>
+describe("Test/Unit/App/Home/ActionsTest", () => 
 {
 
-    const initialState = {},
+    const initialState = {
+            home: {
+                isFetching: false,
+                tweets: null
+            }
+        },
         middlewares = [thunkMiddleware],
         mockStore = createStore(middlewares);
 
@@ -24,7 +29,7 @@ describe("Test/Unit/App/Home/ActionsTest", () =>
 
         const store = mockStore(initialState);
         store.dispatch(fetchTweets())
-            .then(() =>  
+            .then(() => 
             {
                 let actions = store.getActions();
 

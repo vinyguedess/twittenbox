@@ -1,11 +1,23 @@
 import Axios from "axios";
 
 
-export const fetchTweets = () => dispatch =>
+const shouldFetchTweets = ({ home }) => 
 {
-    dispatch(requestTweets());
-    return Axios.get("/api/tweets")
-        .then(({ data }) => dispatch(receiveTweets(data)));
+    if (!home.isFetching && !home.tweets)
+        return true;
+
+    return false;
+};
+
+
+export const fetchTweets = () => (dispatch, getState) => 
+{
+    if (shouldFetchTweets(getState())) 
+    {
+        dispatch(requestTweets());
+        return Axios.get("/api/tweets")
+            .then(({ data }) => dispatch(receiveTweets(data)));
+    }
 };
 
 
